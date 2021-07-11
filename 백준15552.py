@@ -6,8 +6,8 @@ import sys
 
 a=sys.stdin.readline()
 
-for _ in range(int(a)):
-    input_data=sys.stdin.readline().split(' ')
+for _ in range(int(a)): #주의 range로 감싸는 거!
+    input_data=sys.stdin.readline().split(' ') #다섯 번을 다 돌려면 한 번 split 한 결과를 list에 담아야 함!
     x=input_data[0]
     y=input_data[1]
     print(int(x)+int(y))
