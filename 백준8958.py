@@ -1,20 +1,23 @@
 #OX 퀴즈
 #연속된 O의 갯수가 점수가 되는...
+#연속된다는 걸 어떻게 표현하면 좋을까??
+#(따로 루프 만들기)루프가 따로 또 도는데 그 루프가 연속되지 않는 순간 멈춰야 하고,
+#근데 그 루프를 돈 만큼의 점수가 할당이 되어야 한다.=> n(n+1)/2
 
-list_num=[]
-a=int(input())
+#간단하게 0을 만나면 sum(점수)에 c(c는 1씩 증가함)를 더해주고, x를 만나면 c를 1로 만들어준다.
+
+a = int(input())
 
 for i in range(a):
-    list_num.append(input())
+    b=input()
+    s=list(b)
+    sum=0
+    c=1  #c에 1 할당
+    for i in s:
+        if i=='O':
+            sum += c #만약에 만나면 sum에 c를 더하고
+            c+= 1 #만났으니까 c를 2로 바꿔줌
+        else:
+            c=1 #근데 다시 x만나면 다시 c를 1로 바꿔줌5
 
-print(list_num)
-
-
-for j in range(a):
-    x=0
-    for k in range(len(list_num[j])):
-        if list_num[j][k]=='O':
-            pass
-
-
-    print(x)
+    print(sum)
