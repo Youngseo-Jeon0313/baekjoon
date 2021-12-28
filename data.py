@@ -1,5 +1,7 @@
+
 #강력한 표준 자료형들을 잘 다뤄보자.
-"""
+
+'''
 a=1000
 print(a)
 
@@ -81,8 +83,31 @@ answer = 7
 print(f"정답은 {answer}입니다")
 
 
-"""
 
+score = 85
+if score >= 80: 
+    result = "Success"
+else: 
+    result = "fail"
 
+print(result)
 
+def add(a,b):
+    return a+b
+    
+packing과 unpacking 가능
+return 어쩌고, 저쩌고, 오쪼고, 조쪼고
+a,b,c,d=함수() 차례대로 a,b,c,d에 담기
+
+람다 표현식
+print((lambda a,b: a+b)(3,7)) 한 번 쓰고 말 때!
+    
+itertools
+heapq
+bisect
+collections
+math
+
+    
+    '''
 
