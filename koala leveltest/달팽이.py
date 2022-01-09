@@ -34,17 +34,15 @@ for i in range(3):
         x+=dx[i]
         y+=dy[i]
         myList[x][y] = a
-        print(myList)
 for k in range(N-2,0,-1): # 5 4 3 2 1 
     if k%2!=0:
-        move1=[3,1]
+        move1=[3,0]
         for i in move1:
             for j in range(k):
                 a-=1
                 x+=dx[i]
                 y+=dy[i]
                 myList[x][y] = a
-                print(myList)
     else:
         for i in range(1,3): #두번을 이 방법으로
             for j in range(k): #
@@ -52,7 +50,14 @@ for k in range(N-2,0,-1): # 5 4 3 2 1
                 x+=dx[i]
                 y+=dy[i]
                 myList[x][y] = a
-                print(myList)
 
-        
-print(myList)
+    
+for i in range(N):
+    for j in range(N):
+        print (myList[i][j],end=' ')
+    print( )
+    
+for i in range(N):
+    for j in range(N):
+        if myList[i][j]==mine:
+            print(i+1,j+1)
