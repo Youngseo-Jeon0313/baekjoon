@@ -1,7 +1,6 @@
 n=int(input())
 
-while n:
-    n-=1
+while n>0:
     N=int(input())
     player1=0
     player2=0
@@ -16,10 +15,10 @@ while n:
             player1+= 1
         elif a=='P' and b=='S':
             player2+=1
-        elif a=='S' and b=='P':
-            player1+=1
-        elif a=="P" and b=='S':
+        elif a=='R' and b=='P':
             player2+=1
+        elif a=="P" and b=='R':
+            player1+=1
 
     if player1>player2:
         print('Player 1')
@@ -27,3 +26,4 @@ while n:
         print('Player 2')
     else:
         print('TIE')
+    n-=1
