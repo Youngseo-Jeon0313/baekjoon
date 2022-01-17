@@ -1,0 +1,17 @@
+11931번 같은 경우에는 N개의 수가 주어졌을 때 이를 내림차순으로 정렬해야 한다.
+
+계속 시간초과가 남을 알 수가 있었는데, 이는 input=sys.stdin.readline을 지정해줌으로써 해결되었다.
+또한 시간초과는 시간복잡도가 원인이므로 for문이 아닌 sort()또는 sorted()를 사용해주면 된다.(정렬 문제 시)
+여기서 주의해야 할 것은 sorted()는 리스트와 문자열 둘 다 적용이 가능하지만 sort()는 리스트만 가능하다는 점이다.
+
+import sys
+input=sys.stdin.readline
+
+t=int(input())
+A=list()
+for i in range(t):
+    A.append(int(input()))
+A.sort(reverse=True)
+A=tuple(A)
+for i in A:
+    print(i)

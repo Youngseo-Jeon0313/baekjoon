@@ -6,6 +6,9 @@ p2 = {1 : "Habb Yakk", 2 : "Dobara", 3 : "Dousa",
 t=int(input())
 for i in range(t):
     a, b = map(int, input().split())
-    if (a==5 and b==6) or (a==6 and b==5) : print('Case {}: Sheesh Beesh'.format(i+1))
+    #예외
+    if (a==5 and b==6) or(a==6 and b==5) : print('Case {}: Sheesh Beesh'.format(i+1))
+    #같으면 p2대로 가기
     elif a==b: print('Case {}: {}'.format(i+1, p2[a]))
-    else: print('Case {}: {} {}'.format(i+1, p1[b], p1[a]))
+    #다르면 p1이랑 p1 이렇게
+    else: print('Case {}: {} {}'.format(i+1, p1[max(a,b)], p1[min(a,b)]))

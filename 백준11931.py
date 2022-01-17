@@ -7,6 +7,6 @@ A=list()
 for i in range(t):
     A.append(int(input()))
 A.sort(reverse=True)
-A=set(A)
+
 for i in A:
     print(i)
