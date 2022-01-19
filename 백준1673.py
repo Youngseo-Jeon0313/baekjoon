@@ -8,12 +8,12 @@ for i in arr:
     n=int(n)
     k=int(k)
     answer=n
+
     while True:
         M=n//k #몫
         N=n%k #나머지
-        answer+=M
-
-        n=M+N
-        if M<k:
+        answer+=M #answer에 더하는 값
+        n=M+N #확인용
+        if n<k :
             break
     print(answer)
