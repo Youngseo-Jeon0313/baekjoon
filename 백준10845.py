@@ -8,7 +8,7 @@ q = deque()
 order=int(sys.stdin.readline())
 
 for i in range(order):
-    s=list(sys.stdin.readline().split())
+    s=list(sys.stdin.readline().split)
     if s[0]=='front':
         if len(q)>0:
             print(q[0])
