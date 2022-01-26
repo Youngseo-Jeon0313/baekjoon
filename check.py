@@ -1,2 +1,1 @@
-print(ord('z'))
-print(chr(96))
+print([0]*3)
