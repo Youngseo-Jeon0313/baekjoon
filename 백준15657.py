@@ -7,7 +7,6 @@ def go(check, start):
         print(' '.join(map(str,ans)))
         return
     for i in range(start, n): #check값에서 0인 값들 중에서 하나를 1로 바꾸어준다.
-        ans.append(arr[i])
         if check[i] == 0:
             check[i] = 1
             go(check, i+1)
