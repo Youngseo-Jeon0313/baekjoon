@@ -1,3 +1,3 @@
-List=[1,3,4]
-a=int(''.join(map(str,List)))
-print(a+3)
+print(ord('M'))
+print(ord('N'))
+print(ord('A'))
