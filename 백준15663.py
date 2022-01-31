@@ -11,10 +11,8 @@ def Dfs(depth):
         if a not in Ans:
             Ans.append(a)
         return
-
     for i in range(n): 
         if not visited[i]:
-            if depth == 0 or solve[depth - 1] <= my_list[i]:
                 solve.append(my_list[i])
                 visited[i] = True
                 Dfs(depth + 1)
