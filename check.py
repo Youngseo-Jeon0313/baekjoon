@@ -1,3 +1,2 @@
-print(ord('M'))
-print(ord('N'))
-print(ord('A'))
+print(bool(0)) #False
+print(bool('0')) #True
