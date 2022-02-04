@@ -1,37 +1,38 @@
 import sys
 sys.setrecursionlimit(100000)
-
+#중력 문제임!!
 N,M=map(int, sys.stdin.readline().split())
 arr=[]
 for i in range(N):
     arr.append(list(input()))
+Box=[]
+box=[]
+for i in range(M):
+    for j in range(N):
+        if arr[j][i]=='#':
+            box.sort()
+            Box.append(box) #넣고
+            box=[] #새로 만들기
+            box.append(arr[j][i])
+            Box.append(box)
+            box=[]
+        elif j==N-1 :
+            box.append(arr[j][i])
+            box.sort()
+            Box.append(box) #넣고
+            box=[] #새로 만들기
+        else:box.append(arr[j][i])
+
+Box=sum(Box,[])
 
 
-for j in range(M):
-    a=0; b=0
-    for i in range(N):
-        if arr[i][j]=='a':
-            a+=1
-        elif arr[i][j]=='.':
-            b+=1
-        if arr[i][j]=='#':
-            for k in range(i+1):
-                if b>0:
-                    arr[k][j]='.'
-                    b-=1
-                elif a>0:
-                    arr[k][j]='a'
-                    a-=1
-            break
-        elif i==N-1:
-            for k in range(i+1):
-                if b>0:
-                    arr[k][j]='.'
-                    b-=1
-                elif a>0:
-                    arr[k][j]='a'
-                    a-=1
-            break
 
 for i in range(N):
-        print(''.join(arr[i]))
+    for j in range(M):
+        print(Box[N*j+i],end='')
+    print()
+
+
+
+
+        
