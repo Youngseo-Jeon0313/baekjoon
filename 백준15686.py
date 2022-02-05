@@ -12,6 +12,11 @@ for i in range(n):
         if arr[i][j] == 1: Home.append((i,j))
 
 choice = cb(Chicken, m)
+
+print(list(choice))
+'''
+
+
 for choice_chicken in choice:
     res = 0
     for hx, hy in Home:
@@ -21,3 +26,4 @@ for choice_chicken in choice:
         res += dist
     ans = min(ans, res)
 print(ans)
+'''
