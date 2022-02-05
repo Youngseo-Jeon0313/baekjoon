@@ -4,13 +4,6 @@
 '그 때까지!'
 '''
 
-N=int(input())
-s=[]
-for i in range(N):
-    s.append(int(input()))
-giho=[]
-for j in range(4):
-    giho.append(int(input()))
 
 
 N = int(input())
@@ -30,7 +23,8 @@ def dfs(idx, ans):
     if cnt[0] > 0:
         cnt[0] -= 1
         dfs(idx+1, ans+a[idx])
-        cnt[0] += 1
+        cnt[0] += 1 #다시 원상복구 시켜주는,,,
+                    #다음 꺼 돌 때 어차피 여기도 지나치게 되니까 이건 이미 갔을 테니까 하나씩 증가시켜주는 거임
     if cnt[1] > 0:
         cnt[1] -= 1
         dfs(idx+1, ans-a[idx])
@@ -42,7 +36,7 @@ def dfs(idx, ans):
     if cnt[3] > 0:
         cnt[3] -= 1
         dfs(idx+1, int(ans/a[idx]))
-        cnt[3] += 1
+        cnt[3] += 1 
         
 dfs(1,a[0])
 print(max_ans)
