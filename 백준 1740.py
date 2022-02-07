@@ -1,9 +1,11 @@
-from itertools import combinations
-import math
-
+sum=0
 N=int(input())
-
-print(int(math.sqrt(N-1))+1)
-
-
-#이후 조합으로 두 개를 하나씩 골라서 total에 넣기
+N-=1
+i=1
+while (N-i)>=0:
+    N-=i
+    i+=1
+sum+=3**(i-1)
+if N>0:
+    sum+=3**(N-1)
+print(sum,end='')

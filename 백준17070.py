@@ -1,3 +1,7 @@
+import sys
+input=sys.stdin.readline
+
+
 def check(x, y):
     if 0 <= x < n and 0 <= y < n and arr[x][y] == 0: return True
     else: return False
