@@ -1,2 +1,1 @@
-import math
-print(int(math.sqrt(72)))
+print(ord('A')-64)
