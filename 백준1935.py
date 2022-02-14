@@ -1,7 +1,7 @@
 N=int(input())
 arr=list(input())
-q=[];value=[]
-flag=False
+q=[] #꺼낼 list
+value=[] #숫자를 넣을 list
 Ans=0
 ans=0
 for i in range(len(arr)):
@@ -9,20 +9,10 @@ for i in range(len(arr)):
         if ord(arr[i])-64 >len(value):
             value.append(int(input()))
         q.append(value[ord(arr[i])-65])
-        Ans=ans
-        ans=0
-        flag=False
     else:
-        if flag==False: ans=q.pop(); flag=True
-        
-        if arr[i]=='+': ans+=q.pop()
-        elif arr[i]=='*': ans*=q.pop()
-        elif arr[i]=='-': ans=q.pop()-ans
-        elif arr[i]=='/': ans=q.pop()/ans
-        if q==[]:
-            if arr[i]=='+': Ans+=ans
-            elif arr[i]=='-': Ans-=ans
-            elif arr[i]=='*': Ans+=ans
-            else: Ans/=ans
-    print(q, Ans, ans)
-print('{:.2f}'.format(Ans))
+        a=q.pop();b=q.pop()
+        if arr[i]=='+':q.append(a+b)
+        elif arr[i]=='*': q.append(a*b)
+        elif arr[i]=='-': q.append(b-a)
+        elif arr[i]=='/': q.append(b/a)
+print('{:.2f}'.format(q[0]))
