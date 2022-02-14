@@ -1,1 +1,2 @@
-print(ord('A')-64)
+s='FFF'
+print('F' not in 2)
