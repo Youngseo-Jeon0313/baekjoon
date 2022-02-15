@@ -1,0 +1,45 @@
+'''
+from itertools import combinations
+import math
+t=int(input())
+for i in range(t):
+    MIN=1.5*10**5
+    S=[]
+    num=int(input())
+    arr=list(list(map(int,input().split())) for _ in range(num))
+    if num>=4:
+        num=list(i for i in range(num))
+        for i,j,k,l in list(combinations(num,4)):
+            S.append([i,j,k,l])
+    else: 
+        S=list(list(i for i in range(num)))
+    if len(S)==2: 
+        for a,b in list(combinations(S,2)):
+            v=math.sqrt((arr[a][0]-arr[b][0])**2+(arr[a][1]-arr[b][1])**2)
+        print(v)
+        exit();
+    else:
+        for s in S:
+            a=min(math.sqrt((arr[s[0]][0]-arr[s[1]][0]+arr[s[2]][0]-arr[s[3]][0])**2+(arr[s[0]][1]-arr[s[1]][1]+arr[s[2]][1]-arr[s[3]][1])**2),math.sqrt((arr[s[0]][0]-arr[s[1]][0]-(arr[s[2]][0]-arr[s[3]][0]))**2+(arr[s[0]][1]-arr[s[1]][1]-(arr[s[2]][1]-arr[s[3]][1]))**2))
+            b=min(math.sqrt((arr[s[0]][0]-arr[s[2]][0]+arr[s[1]][0]-arr[s[3]][0])**2+(arr[s[0]][1]-arr[s[2]][1]+arr[s[1]][1]-arr[s[3]][1])**2),math.sqrt((arr[s[0]][0]-arr[s[2]][0]-(arr[s[1]][0]-arr[s[3]][0]))**2+(arr[s[0]][1]-arr[s[2]][1]-(arr[s[1]][1]-arr[s[3]][1]))**2))
+            c=min(math.sqrt((arr[s[0]][0]-arr[s[3]][0]+arr[s[1]][0]-arr[s[2]][0])**2+(arr[s[0]][1]-arr[s[3]][1]+arr[s[1]][1]-arr[s[2]][1])**2),math.sqrt((arr[s[0]][0]-arr[s[3]][0]-(arr[s[1]][0]-arr[s[2]][0]))**2+(arr[s[0]][1]-arr[s[3]][1]-(arr[s[1]][1]-arr[s[2]][1]))**2))
+            if min(a,b,c)<MIN: MIN=min(a,b,c)
+    print(MIN)
+
+문제 이해가 어려움...ㅠㅠ
+모든 점을 한 번씩 써서 n/2개의 벡터를 만들고
+그의 합인 벡터의 길이가 최소가 되도록해야 함
+'''
+from itertools import combinations
+
+t=int(input())
+for i in range(t):
+    MIN=1.5*10**5
+    S=[]
+    num=int(input())
+    arr=list(list(map(int,input().split())) for _ in range(num))
+    S=list(combinations(arr,int(num/2))) #뒤져서 선택했고, combination이니까 일단 오름차순이라고 이해
+    S_length=int(len(S)/2)  #벡터 매칭에 있는 벡터의 개수/2
+
+    for i in S[:S_length]:
+
