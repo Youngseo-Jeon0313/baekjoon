@@ -1,32 +1,11 @@
-a=int(input())
-
-for i in range(1,a+1):
-    list_i=list(str(i))
-    for j in range(len(list_i)-1):
-        list.append(list_i[j]-list_i[j+1])
-
-for i in range(len(list_i)):
-    print (i)
-hansu = 0
-
-
-"""
-    
-for n in range(1, num+1) :
-    if n<=99:
-        hansu += 1
+#어차피 1,2,3자리 수 중 하나임
+n=int(input())
+ans=0
+for i in range(1,n+1):
+    check=list(str(i))
+    if len(check)==1: ans+=1
+    elif len(check)==2:
+        ans+=1
     else:
-        list.append()
-        nums=list(map(int, str(n)))
-        if num[0] -num[1] == num[1] -num[2]:
-            hansu+=1
-
-print(hansu)
-
-
-for i in range(len(list)):
-    for j in range(len(list)):
-        if i!=j:
-            break
-
-        """
+        if int(check[0])-int(check[1])==int(check[1])-int(check[2]): ans+=1
+print(ans)
