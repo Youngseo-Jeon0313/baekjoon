@@ -57,7 +57,6 @@ for문을 너무 많이 돌거나 할 때 일어날 수 있음
 2.새로운 deque, 또는 list를 만드는 것을 두려워하지말자! 또는 2차원 배열로 표현하는 것 등..
 3.초기화/pop/append를 적절히 사용하자! 
 
-●알고리즘 어려웠던 것들 정리
-  algorithm.md
+[●알고리즘 어려웠던 것들 정리](https://github.com/Youngseo-Jeon0313/baekjoon/blob/main/algorithm.md)
   
   
