@@ -1,2 +1,6 @@
-from itertools import combinations as cb
-print(len(list(cb([i for i in range(0,10)],6))))
+import math
+def jegob(n):
+    if int(math.sqrt(n))**2==n: return True
+    return False
+
+print(jegob(95481))
