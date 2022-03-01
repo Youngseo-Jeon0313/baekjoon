@@ -1,3 +1,2 @@
-arr=[4]
-arr+=[1,20]
-print(arr)
+print(100/3)
+print(int(100/3))

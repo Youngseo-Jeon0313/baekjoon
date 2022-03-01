@@ -10,26 +10,27 @@
 mid에서 정밀하게 왼쪽 오른쪽으로 한칸씩 옮긴다
 '''
 
+
 N,M,L=map(int,input().split())
 arr=list(map(int,input().split()))
 arr.append(0)
-arr.append(L-1)
+arr.append(L)
 arr.sort()
 
+
 #일단 왼쪽과 오른쪽을 결정
-left=0
+left=1
 right=L-1
 while left <= right:
     mid = (left+right)//2
     count = 0
     for i in range(1, len(arr)):
-        if arr[i]-arr[i-1] > mid:
-            if mid==0: continue
+        if arr[i] - arr[i-1] > mid:
             count += (arr[i]-arr[i-1]-1)//mid
     if count>M: #목표한 값보다 크게 나오면
         left = mid+1 #간격을 넓히기위해 옮기고 다시 돌아가
     else: #목표한 값이 나오거나 목표값 못 채웠을 경워
-        answer=mid  #목표한 값 나왔을 경우 출력
+        answer = mid  #목표한 값 나왔을 경우 출력
         right = mid-1 #목표값 못 채웠을 때 간격 좁히기 위해 옮기고 다시 돌아가
         #여기서 굳이 left, right를 따로 줄이고 넓히는 이유는 left는 0에서 시작하고 right는 l-1에서 시작하니까 그거 - 등으로 오버해서 나오지 말라고
 print(answer)
