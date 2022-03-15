@@ -1,8 +1,6 @@
 '''
 스도쿠 모양에서 
 '''
-
-
 arr=[list(map(int,input().split())) for _ in range(9)]
 nums=[1,2,3,4,5,6,7,8,9]
 blank=[]

@@ -1,5 +1,9 @@
-def fibo(n):
-        if n==0: exit()
-        fibo(n-1)
-        print(n,'바보야')
-fibo(10)
+a=1
+b=1
+c=1
+d=2
+e=5
+
+
+
+print(min(a,b,c,d,e))
