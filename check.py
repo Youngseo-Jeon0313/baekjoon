@@ -1,2 +1,3 @@
-a=[0]*3
-print(a)
+costs=[[]]*(23);coupon=[[]*(23)]
+print(costs)
+print(coupon)
