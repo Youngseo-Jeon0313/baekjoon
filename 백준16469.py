@@ -18,10 +18,11 @@ val=1
 while Aq:
     x,y=Aq.popleft()
     for i in range(4):
-        nx,ny=x+dx[i],dy[i]
+        nx,ny=x+dx[i],y+dy[i]
         if 0<=nx<R and 0<=ny<C and not arr[nx][ny] and not A[nx][ny]:
-            A[nx][ny]=val
-            val+=1
+            A[nx][ny]=A[x][y]+1
+            Aq.append((nx,ny))
+    val+=1
 
 Bq=deque()
 Bq.append((Bx-1,By-1))
@@ -30,11 +31,11 @@ val=1
 while Bq:
     x,y=Bq.popleft()
     for i in range(4):
-        nx,ny=x+dx[i],dy[i]
+        nx,ny=x+dx[i],y+dy[i]
         if 0<=nx<R and 0<=ny<C and not arr[nx][ny] and not B[nx][ny]:
-            B[nx][ny]=val
-        val+=1
-
+            B[nx][ny]=B[x][y]+1
+            Bq.append((nx,ny))
+    val+=1
 Cq=deque()
 Cq.append((Cx-1,Cy-1))
 val=1
@@ -42,11 +43,22 @@ CC[Cx-1][Cy-1]=1
 while Cq:
     x,y=Cq.popleft()
     for i in range(4):
-        nx,ny=x+dx[i],dy[i]
+        nx,ny=x+dx[i],y+dy[i]
         if 0<=nx<R and 0<=ny<C and not arr[nx][ny] and not CC[nx][ny]:
-            CC[nx][ny]=val
-            val+=1
+            CC[nx][ny]=CC[x][y]+1
+            Cq.append((nx,ny))
+            
 
-print(A)
-print(B)
-print(CC)
+root=float('inf')
+for i in range(R):
+    for j in range(C):
+        if A[i][j] and B[i][j] and CC[i][j]:
+            root=min(root,max(A[i][j],B[i][j],CC[i][j])-1)
+if root==float('inf'): print(-1); exit();
+print(root)
+sum=0
+for i in range(R):
+    for j in range(C):
+        if A[i][j] and B[i][j] and CC[i][j] and max(A[i][j], B[i][j], CC[i][j])-1==root:
+            sum+=1
+print(sum)
