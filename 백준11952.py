@@ -1,8 +1,7 @@
-import sys
-from this import d
-input=sys.stdin.readline
 import heapq
 from collections import deque
+import sys
+input=sys.stdin.readline
 
 N,M,K,S=map(int,input().split())
 P,Q=map(int,input().split())
@@ -14,15 +13,19 @@ for _ in range(M):
     road[b].append(a)
 
 
-def dfs(index,num):
-    deque=deque()
-    deque.append([index,0])
-    while deque:
-        
-    if num==S: return #이게 더 메모리 적게 씀
-    for j in road[index]: #여기서 오류가 나는데 아무래도 A 좀비 영역과 B 좀비 영역이 겹칠 때가 문제가 생기는 것 같다..
-        visited[j]=1
-        dfs(j,num+1)
+def dfs(index):
+    dq=deque()
+    dq.append([index,0])
+    visited[index]=1
+    while dq:
+        here,num=dq.popleft()
+        if num<S:
+            for i in road[here]:
+                if not visited[i]:
+                    visited[i]=1
+                    ret[i]=1
+                    dq.append([i,num+1])
+
 
 dp=[float('inf') for _ in range(N+1)]
 dp[1]=0
@@ -34,18 +37,21 @@ def dijkstra():
         if dp[place]<cost: continue
         for i in road[place]:
             if i in zombie: continue;
-            if visited[i] : nextcost=cost+Q
+            if ret[i] : nextcost=cost+Q
             else: nextcost=cost+P
             if nextcost<dp[i]:
                 dp[i]=nextcost
                 heapq.heappush(q,[nextcost,i])
-    if visited[N]: return dp[N]-Q
+    if ret[N]: return dp[N]-Q
     else: return dp[N]-P
-visited=[0]*(N+1)
+
+ret=[0]*(N+1)
 for i in zombie: 
-    dfs(i,0)
+    visited=[0]*(N+1)
+    dfs(i)
+
 print(dijkstra())
 
 #다익스트라로 위험구간 표시 + dfs
 #다익스트라로 1에서 N으로 가는 숙박비 표현 (DP)
-#
+
