@@ -27,19 +27,32 @@ for i in range(t):
     print(MIN)
 
 문제 이해가 어려움...ㅠㅠ
+벡터 두 개를 뽑자는 문제가 아니다!!
 모든 점을 한 번씩 써서 n/2개의 벡터를 만들고
 그의 합인 벡터의 길이가 최소가 되도록해야 함
 '''
 from itertools import combinations
-
+import math
 t=int(input())
 for i in range(t):
-    MIN=1.5*10**5
-    S=[]
+    MIN=float('inf')
+    arr=[]
     num=int(input())
-    arr=list(list(map(int,input().split())) for _ in range(num))
-    S=list(combinations(arr,int(num/2))) #뒤져서 선택했고, combination이니까 일단 오름차순이라고 이해
-    S_length=int(len(S)/2)  #벡터 매칭에 있는 벡터의 개수/2
+    total_x=0; total_y=0;
+    for i in range(num):
+        x,y=map(int,input().split())
+        arr.append([x,y])
+        total_x+=x
+        total_y+=y
+    S=list(combinations(arr,num//2))
+    Slen=len(S)//2
+    print(S)
+    for i in S:
+        T_x=total_x; T_y=total_y;
+        for j in i:
+            T_x-=2*j[0]
+            T_y-=2*j[1]
+        if math.sqrt(T_x**2+T_y**2)<MIN: MIN=math.sqrt(T_x**2+T_y**2)
+    print(MIN)
 
-    for i in S[:S_length]:
 
