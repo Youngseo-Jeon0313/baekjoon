@@ -1,1 +1,2 @@
-print(int(10.9))
+dp=[[float('inf')]*4]*(10)
+print(dp)
