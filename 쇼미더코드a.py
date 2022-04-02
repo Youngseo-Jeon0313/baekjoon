@@ -9,8 +9,6 @@ for x in range(N): #각 종류별 할인 정보 제공
         Sale[x].append((aj-1,dj))
 L=list(permutations(list(range(N)),N))
 
-
-
 def go(i,price):
     global Min
     sum=0; check=[0]*(N)
