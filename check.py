@@ -1,1 +1,3 @@
-print(1111110%4)
+check=[0]*10
+check[1]=1
+print(check)
