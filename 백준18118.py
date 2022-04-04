@@ -16,3 +16,4 @@ for _ in range(t):
                     if k==11: dp[i][(dp[i-1][j]*100+k)%m]=max(dp[i][(dp[i-1][j]*100+k)%m],dp[i-1][j]*100+k);
                     else:dp[i][(dp[i-1][j]*10+k)%m]=max(dp[i][(dp[i-1][j]*10+k)%m],dp[i-1][j]*10+k);
     print(dp[n-1][0])
+#파이썬으로 구현하면 시간초과가 오짐 ㅠㅠㅠ
