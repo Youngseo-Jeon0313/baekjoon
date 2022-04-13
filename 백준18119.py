@@ -19,6 +19,10 @@ for _ in range(M):
     else: letters_bitmasking[ord(x)-97]=1
     sum=0
     for i in range(N):
-        if bin(''.join(map(str,letters[i])) & ''.join(map(str, letters_bitmasking))) == bin(''.join(map(str, letters[i]))): sum+=1
+        a=(int(''.join(map(str,letters[i]))) & int(''.join(map(str, letters_bitmasking))))
+        b=(''.join(map(str, letters[i])))
+        print(a)
+        print(b)
+        if  a==b : sum+=1
     print(sum)
             
