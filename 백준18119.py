@@ -45,10 +45,10 @@ bitmask2=0b11111111111111111111111111
 for _ in range(m):
     x,what=input().strip().split()
     what=ord(what)-ord('a')
-    if x=='1':
+    if x=='1': #해당 단어 삭제
          bitmask2 &= ~(1<<what) #what을 2진수로 나타낸 것 중 1에 해당하는 것들을 제외 (0있는 것들만 있는 걸로 취급)
-    else: 
-        bitmask2 |= (1<<what) 
+    else:  #해당 단어 (없다면)추가
+        bitmask2 |= (1<<what) #what을 2진수로 나타낸 것 중 1에 해당하는 것들을 
     count=0
     for y in wordList:
         if bitmask2 & y == y: count+=1
