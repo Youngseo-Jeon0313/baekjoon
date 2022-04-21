@@ -1,1 +1,3 @@
-print(bin(2**26-1))
+# [int(num^(1<<i),2)
+
+print(ord('s'))
