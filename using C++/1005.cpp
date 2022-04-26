@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <queue>
-#define MAX 20
+#define MAX 32001
 
 using namespace std;
 
