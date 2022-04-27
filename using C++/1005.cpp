@@ -2,52 +2,68 @@
 #include <vector>
 #include <queue>
 #define MAX 32001
-
+#include <algorithm>
+#include <string>
+#include <map>
+#include <set>
+#include <random>
 using namespace std;
+#pragma warning(disable: 4996)
 
-int n, inDegree[MAX];
-vector<int> a[MAX];
-int result[MAX];
-queue<int> q;
-void topologySort() {
-	
-	for (int i = 1; i <= n; i++) {
-		if (inDegree[i] == 0) q.push(i);
-	}
-	for (int i = 1; i <= n; i++) {
-		//n개를 방문하기 전에 큐가 비어버렸다면 사이클이 발생한 것이다.
-		if (q.empty()) {
-			printf("사이클이 발생했습니다.");
-			return;
-		}
-		int x = q.front(); //q 맨 앞에 꺼 가져옴
-		q.pop(); //front 데이터 없앰
-		result[i] = x;
-		for (int j = 0; j < a[x].size(); j++) {
-			int y = a[x][j];
-			//만약 진입차수가 0인 게 있다면 큐에 삽입한다.
-			if (--inDegree[y] == 0)
-				q.push(y);
-		}
-	}
-	for (int i = 1; i <= n; i++) {
-		printf("%d ", result[i]);
-	}
 
-}
+int indegree[1005];
+map<int, int> resultCost;
+map<int, int> cost;
+
 
 int main(void) {
-	int m;
-	cin >> n >> m;
-	for (int i = 0; i < m; i++) {
-		int front, back;
-		cin >> front >> back;
-		a[front].push_back(back);
-		inDegree[back]++;
-	}
-	
-	topologySort();
 
-	//a라는 배열에는 해당 index 안에 그 정점을 진입으로 갖는 정점 대입
-	//inDegree는 진입차수가 각각 쓰여있음
+	int T;
+	cin >> T;
+	for (int i = 0; i < T; i++) {
+		int answer = 0;
+		int N, K, node_cost, x, y, W;
+		cin >> N >> K;
+		vector<vector<int>> v(N + 1);
+		queue<int> q;
+
+		
+		for (int k = 1; k <=N; i++) {
+			//D에다가 넣기
+			scanf("%d ", &node_cost); //우리는 몇 번 받는 건지 알기 때문에 이렇게 개행해서 받는다.
+			cost[k] = node_cost; 
+			resultCost[k] = node_cost;
+		}
+		for (int j = 1; j <=K; j++) {
+			scanf("%d %d ", &x, &y);
+			v[x].emplace_back(y);//v라는 배열에는 해당 index 안에 그 정점을 진입으로 갖는 정점 대입
+			indegree[y]++;//진입차수 하나씩 늘려주기
+		}
+
+		cin >> W;
+
+		for (int i = 1; i <= N; i++) {
+			if (i == W) continue;
+			else if (indegree[i] == 0) { q.emplace(i); } //진입이 0인 거 일단 넣기
+		}
+		while (!q.empty()) {
+			int idx = q.front(); //popleft
+			q.pop();
+			int Size = v[idx].size();
+			for (int j = 0; j < Size; j++) {
+				int n = v[idx][j]; //해당 index v[index] 속 원소를 하나씩 꺼낸다.
+				resultCost[n] = max(resultCost[n], resultCost[idx] + cost[n]);
+				if (--indegree[n] == 0) q.emplace(n);
+			}
+		}
+		cout << resultCost[W] << endl;
+
+		for (int j = 1; j <= N; j++) {
+			indegree[i] = 0;
+			resultCost[j] = 0;
+			cost[j] = 0;
+
+		}
+	}
+	return 0;
 }
