@@ -1,17 +1,24 @@
+'''
+가장 큰 증가하는 부분 수열
+LIS
+'''
+import sys
+input=sys.stdin.readline
 n=int(input())
-List=[0 for _ in range(100)]
-dp=[0 for _ in range(100)]
+List=[]
+
 for _ in range(n):
     x,y=map(int,input().split())
-    List[x]=y
+    List.append([x,y])
+List.sort(key=lambda x:x[0])
 
-
-n=int(input())
-#그냥 리스트로 만들어주는..
-A=[*map(int,input().split())]
-dp=[1]*n
-for i in range(1,n):
+dp=[1]*1000
+for i in range(n):
+    Max=0
     for j in range(i):
         #증가하기만 하면 그냥 일단 넣기
-        if A[i]>A[j]: dp[i]=max(dp[i],dp[j]+1)
-print(max(dp))
+        if List[i][1]>List[j][1] :
+            Max=max(Max, dp[List[j][0]])
+    dp[List[i][0]]+=Max
+
+print(n-max(dp))
