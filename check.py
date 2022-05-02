@@ -1,6 +1,2 @@
-import math
-def jegob(n):
-    if int(math.sqrt(n))**2==n: return True
-    return False
-
-print(jegob(95481))
+for nx, ny in [-1,1],[1,1],[0,2]:
+    print (nx , ny)
