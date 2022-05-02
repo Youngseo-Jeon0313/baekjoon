@@ -8,3 +8,4 @@ for i in range(1,K+1):
     for k in range(1,N+1):
         dp[i][k]=dp[i-1][k]+dp[i][k-1]
 print(dp[K-1][N]%1000000000)
+
