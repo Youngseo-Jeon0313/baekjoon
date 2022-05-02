@@ -15,7 +15,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="segment_tree.cpp">
+    <ClCompile Include="binarysearch.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="string.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
