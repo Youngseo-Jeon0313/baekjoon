@@ -1,4 +1,11 @@
 N=int(input())
-if N%2==1:print(0)
-else:
-    print(3*(N//2))
+dp=[0 for _ in range(31)]
+dp[0]=1; dp[2]=3
+for i in range(4,31):
+    if i%2==0:
+        dp[i]+=dp[i-2]*dp[2]
+        for j in range(0,i-2,2):
+            dp[i]+=2*dp[j]
+    else:
+        dp[i]=0
+print(dp[N])

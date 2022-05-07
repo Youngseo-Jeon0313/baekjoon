@@ -9,4 +9,4 @@ for _ in range(n):
       if j + w <= k and table[j] != 0:
         table[j+w] = max(table[j+w], table[j] + v)
     table[w] = max(table[w], v)
-  print(max(table))
+print(max(table))
