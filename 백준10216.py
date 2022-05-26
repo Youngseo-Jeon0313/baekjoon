@@ -11,36 +11,30 @@ def find(target):
 def union(a, b):
     a = find(a)
     b = find(b)
- 
     # 작은 루트 노드를 기준으로 합침
-    if a < b:
-        parent[b] = a
+
+    if a<=b:
+        parent[b]=a
     else:
         parent[a] = b
  
-# parent = [0, 1, 2, 3, 4, 5]
- 
-# # 노드 3과 노드 5가 같은 집합인지 비교
-# # 출력 결과 : 다른 집합입니다!
-# if find(3) == find(5):
-#     print("같은 집합입니다!")
-# else:
-#     print("다른 집합입니다!")
- 
-# # 노드 3과 노드 5를 union 연산(합침)
-# union(3, 5)
- 
-# # 노드 3과 노드 5가 같은 집합인지 비교
-# # 출력 결과 : 같은 집합입니다!
-# if find(3) == find(5):
-#     print("같은 집합입니다!")
-# else:
-#     print("다른 집합입니다!")
-
-
 T=int(input())
 for _ in range(T):
     N=int(input())
+    parent = [i for i in range(N)]
+    basket=[]
     for _ in range(N):
         x,y,R=map(int,input().split())
-        
+        basket.append([x,y,R])
+    
+    for i in range(N):
+        for j in range(i):
+            if ((basket[j][0]-basket[i][0])**2+(basket[j][1]-basket[i][1])**2)<=(basket[j][2]+basket[i][2])**2: union(i,j)
+
+    for i in range(N):
+        find(i)
+
+    check=[]
+    for i in parent: 
+        if i not in check: check.append(i)
+    print(len(check))
