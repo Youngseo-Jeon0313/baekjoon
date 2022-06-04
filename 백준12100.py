@@ -89,6 +89,9 @@ if how==1: #왼쪽으로 쫙
  
 '''
 한 번의 이동에서 이미 합쳐진 블록은 또 다른 블록과 다시 합쳐질 수 없다.
+
+
+DEEPCOPY 오류!!
 '''
 import sys
 from copy import deepcopy
@@ -97,23 +100,28 @@ Board=[]
 for _ in range(n):
     Board.append(list(map(int,input().split())))
 
-check=[[False] * n for _ in range(n)]
 
 
 def dfs(board,cnt):
     global ans 
-    if cnt ==5:
+    if cnt==5:
         for i in range(n):
             for j in range(n):
+                # if board[i][j]>ans: print(board)
                 ans=max(ans,board[i][j])
-                print(board)
+                
+                
         return
-    for i in [1,2,3,4]:
-        tmp_board=move(board,i)
-        dfs(deepcopy(tmp_board),cnt+1)
+    if cnt <5:
+        for i in [1,2,3,4]:
+            tmp_board=move(deepcopy(board),i)
+            dfs(deepcopy(tmp_board),cnt+1)
+        return
 
 def move(board,how):
-    if how==1:
+    check=[[0] * n for _ in range(n)]
+
+    if how==1:#아래로 내리기
         for j in range(n):
             pointer = n - 1
             for i in range(n - 2, -1, -1):
@@ -122,31 +130,34 @@ def move(board,how):
                     board[i][j] = 0
                     if board[pointer][j] == 0:
                         board[pointer][j] = tmp
-                    elif board[pointer][j]  == tmp and not check[pointer][j]:
+                        if check[i][j]: check[i][j]=0; check[pointer][j]=1;
+                    elif board[pointer][j]  == tmp and not check[pointer][j] and not check[i][j]:
                         board[pointer][j] *= 2
                         check[pointer][j]=1
                         pointer -= 1
                     else:
                         pointer -= 1
                         board[pointer][j] = tmp
-    if how==2:
-        for i in range(n):
+
+                
+    if how==2: #위로 올리기
+        for j in range(n):
             pointer = 0
-            for j in range(1, n):
+            for i in range(1, n):
                 if board[i][j]:
                     tmp = board[i][j]
                     board[i][j] = 0
-                    if board[i][pointer] == 0:
-                        board[i][pointer] = tmp
-                        
-                    elif board[i][pointer]  == tmp  and not check[i][pointer]:
-                        board[i][pointer] *= 2
-                        check[i][pointer]=1
+                    if board[pointer][j] == 0:
+                        board[pointer][j] = tmp
+                        if check[i][j]: check[i][j]=0; check[pointer][j]=1;
+                    elif board[pointer][j]  == tmp  and not check[pointer][j] and not check[i][j]:
+                        board[pointer][j] *= 2
+                        check[pointer][j]=1
                         pointer += 1
                     else:
                         pointer += 1
-                        board[i][pointer]= tmp
-    if how==3:        
+                        board[pointer][j]= tmp
+    if how==3: #왼쪽으로 쫙        
         for i in range(n):
             pointer = 0
             for j in range(1, n):
@@ -155,8 +166,8 @@ def move(board,how):
                     board[i][j] = 0
                     if board[i][pointer] == 0:
                         board[i][pointer] = tmp
-
-                    elif board[i][pointer]  == tmp and not check[i][pointer]:
+                        if check[i][j]: check[i][j]=0; check[i][pointer]=1;
+                    elif board[i][pointer]  == tmp and not check[i][pointer] and not check[i][j]:
                         board[i][pointer] *= 2
                         check[i][pointer]=1
                         pointer += 1
@@ -164,7 +175,7 @@ def move(board,how):
                         pointer += 1
                         board[i][pointer]= tmp       
 
-    if how==4:
+    if how==4: #오른쪽으로 쫙
         for i in range(n):
             pointer = n - 1
             for j in range(n - 2, -1, -1):
@@ -173,8 +184,9 @@ def move(board,how):
                     board[i][j] = 0
                     if board[i][pointer] == 0:
                         board[i][pointer] = tmp
+                        if check[i][j]: check[i][j]=0; check[i][pointer]=1;
 
-                    elif board[i][pointer]  == tmp and not check[i][pointer]:
+                    elif board[i][pointer]  == tmp and not check[i][pointer] and not check[i][j]:
                         board[i][pointer] *= 2
                         check[i][pointer] =1
                         pointer -= 1
@@ -182,6 +194,12 @@ def move(board,how):
                         pointer -= 1
                         board[i][pointer] = tmp
     return board
+
+
+ans=0
+dfs(deepcopy(Board),0)
+print(ans)
+
 '''
 7
 2 2 2 2 2 2 2
@@ -210,6 +228,13 @@ def move(board,how):
 1024
 
 
+5
+2 0 0 0 0
+2 0 0 0 0
+4 0 0 0 0 
+2 0 0 0 0
+2 0 0 0 0
+4
 
 
 문제의 설명 중에
@@ -226,10 +251,6 @@ def move(board,how):
 
 '''
 
-
-ans=0
-dfs(Board,0)
-print(ans)
 
 
 
