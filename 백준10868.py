@@ -36,12 +36,9 @@ def MAX(node, start, end, left, right):
 
 n,m=map(int,input().split())
 leaf=[]
-# mintree=[0]*3000000
-# maxtree=[0]*3000000
-h = int(math.ceil(math.log2(n)))
-tree_size = (1 << (h + 1))
-mintree = [0] * tree_size
-maxtree = [0] * tree_size
+mintree=[0]*3000000
+maxtree=[0]*3000000
+
 for _ in range(n):
     leaf.append(int(input().rstrip()))
 init_min(1,0,n-1) #노드는 1부터 시작해서, 그리고 leaf는 0부터 따져서 트리 만들어가기!
@@ -50,4 +47,4 @@ init_max(1,0,n-1)
 
 for _ in range(m):
     s,e=map(int,input().split())
-    print(MIN(1,0,n-1,s-1,e-1), MAX(1,0,n-1,s-1,e-1))
+    print(MIN(1,0,n-1,s-1,e-1))
