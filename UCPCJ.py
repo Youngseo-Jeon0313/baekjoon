@@ -1,9 +1,10 @@
+import math
+#gcd를 이용하라고??????하;;;;
 def issquare(a,b):
-    n=a*b
-    tmp=int(n**0.5)
-    if tmp**2==n:
-            return True
-    return False
+    c=math.gcd(a,b)
+    a=a/c;b=b/c
+    if int(math.sqrt(a)) == math.sqrt(a) and int(math.sqrt(b))==math.sqrt(b): return True
+    else: return False
 
 N=int(input())
 arr=list(map(int,input().split()))
@@ -13,8 +14,6 @@ arr1=sorted(arr)
 
 for i in range(N):
     if not issquare(arr[i],arr1[i]):
-        flag=False
+        print("NO"); exit();
 
-if flag==True: print("YES")
-else: print("NO")
-            
+print("YES")
