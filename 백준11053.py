@@ -1,6 +1,6 @@
 n=int(input())
-#그냥 리스트로 만들어주는..
-A=[*map(int,input().split())]
+A=list(map(int,input().split()))
+
 dp=[1]*n
 for i in range(1,n):
     for j in range(i):
