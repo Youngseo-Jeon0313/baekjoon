@@ -9,7 +9,7 @@ def find(target):
  
 # union 연산
 def union(a, b):
-    a = find(a)
+    a = find(a) #이거 빼먹지 않도록 주의ㅠㅠㅠ
     b = find(b)
  
     # 작은 루트 노드를 기준으로 합침
