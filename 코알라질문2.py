@@ -11,10 +11,13 @@ for i in range(1,n):
 	for j in range(2,5):
 		dp[i][j]+=dp[i-1][j-1]*(8-(2*j-2))
 		dp[i][j]%=div
+
 	for j in range(5):
 		dp[i][j]+=dp[i-1][j]*(j+1)
 		dp[i][j]%=div
+	
 	dp[i][1]+=8
+
 print(sum(dp[-1]))
 
 
@@ -33,3 +36,4 @@ for i in range(10**(n-1),10**(n)):
 	cnt+=1
 
 print(cnt)
+	
