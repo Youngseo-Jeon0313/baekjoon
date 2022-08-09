@@ -46,10 +46,7 @@ I,J=0,0
 for i in range(W):
     if dp[i][W]<compare: I,J = i,W; compare=dp[i][W]
     if dp[W][i]<compare: I,J = W,i; compare= dp[W][i]
-# for j in range(W):
-#     if dp[W][j]<compare: I,J = W, j; compare= dp[W][j]
 
-#    if dp[W][i]<compare: I,J = W, i; compare= dp[W][i]
 # print('I랑 J',I,J)
 # print(dp_trace)
 print(dp[I][J])
