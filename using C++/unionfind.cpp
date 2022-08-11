@@ -5,7 +5,7 @@ int getParent(int parent[], int x) {
 	return parent[x] = getParent(parent, parent[x]);
 }
 
-//°¢ ºÎ¸ð ³ëµå¸¦ ÇÕÄ¨´Ï´Ù.
+//ï¿½ï¿½ ï¿½Î¸ï¿½ ï¿½ï¿½å¸¦ ï¿½ï¿½Ä¨ï¿½Ï´ï¿½.
 void unionParent(int parent[], int a, int b) {
 	a = getParent(parent, a);
 	b = getParent(parent, b);
@@ -22,11 +22,11 @@ int findParent(int parent[], int a, int b) {
 }
 
 
-int main(void) {
+int main_(void) {
 	int parent[11];
 	for (int i = 1; i <= 10; i++) {
 		parent[i] = i;
 	}
 	unionParent(parent, 1, 2);
-	printf("1°ú 5´Â ¿¬°áµÇ¾î ÀÖ³ª¿ä? %d\n", findParent(parent, 1, 5));
+	printf("1ï¿½ï¿½ 5ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ ï¿½Ö³ï¿½ï¿½ï¿½? %d\n", findParent(parent, 1, 5));
 }

@@ -10,7 +10,7 @@ int Make_SegmentTree(int Node, int Start, int End)
     return SegmentTree[Node];
 }
 
-int main(void)
+int main_(void)
 {
     int Tree_Height = (int)ceil(log2(N));
     int Tree_Size = (1 << (Tree_Height + 1));

@@ -4,13 +4,13 @@
 #define n 7
 using namespace std;
 
-//ºÎ¸ð³ëµå °¡Á®¿À±â
+//ï¿½Î¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 int getParent(int set[], int x) {
 	if (set[x] == x) return x;
 	return set[x] = getParent(set, set[x]);
 }
 
-//ºÎ¸ð ³ëµå¸¦ º´ÇÕ
+//ï¿½Î¸ï¿½ ï¿½ï¿½å¸¦ ï¿½ï¿½ï¿½ï¿½
 void unionParent(int set[], int a, int b) {
 	a = getParent(set, a);
 	b = getParent(set, b);
@@ -18,7 +18,7 @@ void unionParent(int set[], int a, int b) {
 	else set[a] = b;
 }
 
-//°°Àº ³ëµå¸¦ °¡Áö´ÂÁö È®ÀÎ
+//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½å¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½
 int find(int set[], int a, int b) {
 	a = getParent(set, a);
 	b = getParent(set, b);
@@ -26,7 +26,7 @@ int find(int set[], int a, int b) {
 	else return 0;
 }
 
-//°£¼± Å¬·¡½º ¼±¾ð
+//ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 class Edge {
 public :
 	int node[2];
@@ -41,7 +41,7 @@ public :
 }
 };
 
-int main(void) {
+int main_(void) {
 
 	int m = 11;
 	int set[n];

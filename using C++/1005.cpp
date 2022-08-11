@@ -14,7 +14,7 @@ map<int, int> resultCost;
 map<int, int> cost;
 
 
-int main(void) {
+int main_(void) {
 
 	int T;
 	cin >> T;
@@ -27,29 +27,29 @@ int main(void) {
 
 		
 		for (int k = 1; k <=N; k++) {
-			//D¿¡´Ù°¡ ³Ö±â
-			cin >> node_cost; //¿ì¸®´Â ¸î ¹ø ¹Þ´Â °ÇÁö ¾Ë±â ¶§¹®¿¡ ÀÌ·¸°Ô °³ÇàÇØ¼­ ¹Þ´Â´Ù.
+			//Dï¿½ï¿½ï¿½Ù°ï¿½ ï¿½Ö±ï¿½
+			cin >> node_cost; //ï¿½ì¸®ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½Þ´Â´ï¿½.
 			cost[k] = node_cost; 
 			resultCost[k] = node_cost;
 		}
 		for (int j = 0; j < K; j++) {
 			cin >> x >> y;
-			v[x].push_back(y);//v¶ó´Â ¹è¿­¿¡´Â ÇØ´ç index ¾È¿¡ ±× Á¤Á¡À» ÁøÀÔÀ¸·Î °®´Â Á¤Á¡ ´ëÀÔ
-			indegree[y]++;//ÁøÀÔÂ÷¼ö ÇÏ³ª¾¿ ´Ã·ÁÁÖ±â
+			v[x].push_back(y);//vï¿½ï¿½ï¿½ ï¿½è¿­ï¿½ï¿½ï¿½ï¿½ ï¿½Ø´ï¿½ index ï¿½È¿ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+			indegree[y]++;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï³ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½Ö±ï¿½
 		}
 
 		cin >> W;
 
 		for (int i = 1; i <= N; i++) {
 			if (i == W) continue;
-			else if (indegree[i] == 0) { q.push(i); } //ÁøÀÔÀÌ 0ÀÎ °Å ÀÏ´Ü ³Ö±â
+			else if (indegree[i] == 0) { q.push(i); } //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 0ï¿½ï¿½ ï¿½ï¿½ ï¿½Ï´ï¿½ ï¿½Ö±ï¿½
 		}
 		while (!q.empty()) {
 			int idx = q.front(); //popleft
 			q.pop();
 			int Size = v[idx].size();
 			for (int j = 0; j < Size; j++) {
-				int n = v[idx][j]; //ÇØ´ç index v[index] ¼Ó ¿ø¼Ò¸¦ ÇÏ³ª¾¿ ²¨³½´Ù.
+				int n = v[idx][j]; //ï¿½Ø´ï¿½ index v[index] ï¿½ï¿½ ï¿½ï¿½ï¿½Ò¸ï¿½ ï¿½Ï³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 				resultCost[n] = max(resultCost[n], resultCost[idx] + cost[n]);
 				if (--indegree[n] == 0) q.push(n);
 			}
