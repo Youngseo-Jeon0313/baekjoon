@@ -1,7 +1,4 @@
-'''
-언제??
-사이클 존재 판별 하고 싶을 때
-'''
+
 
 import sys
 from collections import deque
