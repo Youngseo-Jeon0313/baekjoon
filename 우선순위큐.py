@@ -2,19 +2,24 @@
 
 import heapq
 
-def heapsort(iterable): #iterable은 list나 tuple같은 것
-    h = []
-    result = []
-    #모든 원소를 차례대로 힙에 삽입
-    for value in iterable:
-        heapq.heappush(h, value) #넣을 때 
-    #힙에 삽입된 모든 원소를 차례대로 꺼내어 담기
-    for i in range(len(h)):
-        result.append(heapq.heappop(h)) #꺼낼 때
-    return result
+#모듈
+heapq.heapify(iterable) #원래 있던 리스트를 힙으로 사용
 
-result = heapsort([1,3,5,7,9,2,4,6,8,0])
-print(result)
+heapq.heappush(heap, item) #heapify된 상태를 유지하면서 값 넣기
+
+heapq.heappop(heap) #루트에 있는 값을 pop
+
+#최대 힙 만들기
+arr=[3,2,4,1,6,8,5]
+heap=[]
+
+for i in arr:
+    heapq.heappush(heap, (-i,i))
+
+print(heap)
+while heap:
+    print(heapq.heappop(heap)[1], end=" ")
+    
 
 #시간 복잡도 NlogN -최소
 
