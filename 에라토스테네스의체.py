@@ -1,5 +1,8 @@
 n=1000
+
 a = [True]*(n+1)
+
+
 primes=[]
 
 for i in range(2,n+1):
