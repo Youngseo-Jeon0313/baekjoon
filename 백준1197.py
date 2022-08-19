@@ -1,4 +1,5 @@
-
+import sys
+input=sys.stdin.readline
 
 def find_set(x):
     while x != parents[x]:
