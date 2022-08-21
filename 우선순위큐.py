@@ -5,6 +5,7 @@ import heapq
 #모듈
 heapq.heapify(iterable) #원래 있던 리스트를 힙으로 사용
 
+#무조건 이 첫번째에 heap이 들어가야 함
 heapq.heappush(heap, item) #heapify된 상태를 유지하면서 값 넣기
 
 heapq.heappop(heap) #루트에 있는 값을 pop
