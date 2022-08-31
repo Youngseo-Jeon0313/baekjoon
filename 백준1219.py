@@ -32,7 +32,7 @@ def bf(start):
             if dist[node] != -float('inf') and dist[next_node] < dist[node] + cost:
                 dist[next_node] = dist[node] + cost
                 if i == N-1: # (정점-1)만큼 돌았는데도 또 돌 경우. 사이클 발생. 그냥 표시를 float('inf)로 해준다.
-                    #######해당 사이클에서 끝점으로 갈 수 있는지 확인한다.
+                    #######해당 양의 사이클에서 끝점으로 갈 수 있는지 확인한다.
                     if check(node): print('Gee'); exit(); 
                     else: dist[next_node]=float('inf')
             # print(dist)
