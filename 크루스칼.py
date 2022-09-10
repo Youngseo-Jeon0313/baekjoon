@@ -1,5 +1,3 @@
-
-
 def find_set(x):
     while x != parents[x]:
         x = parents[x]
@@ -27,5 +25,6 @@ for a, b, value in edges:
         # N - 1개의 간선을 모두 찾음. 탐색 종료
         if cnt >= N - 1:
             break
+    print(parents)
 
 print(distance)

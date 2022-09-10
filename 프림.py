@@ -9,7 +9,7 @@ graph = collections.defaultdict(list) # 빈 그래프 생성
 visited = [0] * (n+1) # 노드의 방문 정보 초기화
 
 # 무방향 그래프 생성
-for i in range(m): # 간성 정보 입력 받기
+for i in range(m): # 간선 정보 입력 받기
     u, v, weight = map(int,input().split())
     graph[u].append([weight, u, v])
     graph[v].append([weight, v, u])
