@@ -12,45 +12,71 @@ ans=[[0 for _ in range(N)]for _ in range(N)]
 
 for i in range(N):
     for j in range(N):
-        if arr[i][j]==1:
-            tempans=1
+        flag=False
+        if arr[i][j]==1 or arr[i][j]==2:
+            if ans[i][j]: flag=True
+            check=0;tempans=0
             tempi=i; tempj=j
-            while tempi<N and tempj<N and arr[tempi][tempj]==1:
+            while tempi<N and tempj<N and ((arr[tempi][tempj]==1 and check<=1) or (arr[tempi][tempj]==2 and check==0)):
+                if arr[tempi][tempj]==2: check+=1
+                tempans+=1;
                 ans[tempi][tempj]=max(ans[tempi][tempj],tempans)
-                tempans+=1; tempi+=1; 
-            while tempi<N and tempj<N and arr[tempi][tempj]==1:
+                tempi+=1; tempj-=1
+            if flag==True: continue
+            check=0; tempans=0
+            tempi=i; tempj=j
+            while tempi<N and tempj<N and ((arr[tempi][tempj]==1 and check<=1) or (arr[tempi][tempj]==2 and check==0)):
+                if arr[tempi][tempj]==2: check+=1
+                tempans+=1; 
                 ans[tempi][tempj]=max(ans[tempi][tempj],tempans)
-                tempans+=1; tempj+=1; 
-            while tempi<N and tempj<N and arr[tempi][tempj]==1:
+                tempi+=1; 
+            check=0; tempans=0
+            tempi=i; tempj=j
+            while tempi<N and tempj<N and ((arr[tempi][tempj]==1 and check<=1) or (arr[tempi][tempj]==2 and check==0)):
+                if arr[tempi][tempj]==2: check+=1
+                tempans+=1; 
                 ans[tempi][tempj]=max(ans[tempi][tempj],tempans)
-                tempans+=1; tempi+=1; tempj+=1
+                tempj+=1; 
+            check=0;tempans=0
+            tempi=i; tempj=j
+            while tempi<N and tempj<N and ((arr[tempi][tempj]==1 and check<=1) or (arr[tempi][tempj]==2 and check==0)):
+                if arr[tempi][tempj]==2: check+=1
+                tempans+=1;
+                ans[tempi][tempj]=max(ans[tempi][tempj],tempans)
+                tempi+=1; tempj+=1
             
-
+    
 # print(ans)
+ANS=0
+for i in ans:
+    ANS=max(ANS,max(i))
+print(ANS)
 
-MAX=0
-#자 열심히 분기
-for i in range(N):
-    for j in range(N):
-        if arr[i][j]==2:
-            if i>0:
-                MAX=max(MAX,ans[i-1][j]+1)
-            if j>0:
-                MAX=max(MAX,ans[i][j-1]+1)
-            if i<N-1:
-                MAX=max(MAX,ans[i+1][j]+1)
-            if j<N-1:
-                MAX=max(MAX,ans[i][j+1]+1)
-            if i>0 and i<N-1 and ans[i-1][j] and ans[i+1][j]:
-                MAX=max(MAX,ans[i-1][j]+ans[i+1][j]+1)
-            if j>0 and j<N-1 and ans[i][j-1] and ans[i][j+1]:
-                MAX=max(MAX,ans[i][j-1]+ans[i][j+1]+1)
-            if i>0 and j>0:
-                MAX=max(MAX,ans[i-1][j-1]+1)
-            if i<N-1 and j<N-1:
-                MAX=max(MAX,ans[i+1][j+1]+1)
-            if i>0 and i<N-1 and i<N-1 and j<N-1 and ans[i-1][j-1] and ans[i+1][j+1]:
-                MAX=max(MAX,ans[i-1][j-1]+1+ans[i+1][j+1])
-            MAX=max(MAX,1)
-            # print(i,j,MAX)
-print(MAX)
+'''
+3
+1 1 1
+1 2 1
+1 1 1
+3
+
+3
+0 2 0
+0 0 0
+0 0 0
+1
+
+1
+2
+1
+
+8
+1 0 2 0 1 0 2 0
+2 0 1 1 1 1 0 0
+2 0 0 1 0 0 1 1
+0 1 0 1 1 1 1 0
+0 0 0 1 0 1 0 0
+1 0 2 0 1 2 2 1
+0 2 0 1 0 1 2 2
+2 0 1 0 1 0 1 1
+7
+'''
