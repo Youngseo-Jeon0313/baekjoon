@@ -13,4 +13,8 @@ for i in range(1,n+1):
 
 for i in range(m):
     l, r=map(int,input().split())
+    ans=0
+    for j in range(l-1,r):
+        ans+=arr[j]
+    print(ans)
     print(psum[r]-psum[l-1])

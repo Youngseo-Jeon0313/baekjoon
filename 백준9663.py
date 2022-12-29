@@ -14,6 +14,7 @@ def dfs(x):
     else:
         for i in range(n):
             col[x]=i #x열의 행은 i라고 하면
+            print(col)
             if check(x):
                 dfs(x+1)
 n=int(input())

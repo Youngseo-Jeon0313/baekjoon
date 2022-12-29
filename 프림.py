@@ -1,3 +1,7 @@
+'''
+임의의 간선 선택. 그 정점에서 가장 낮은 가중치를 갖는 정점 선택. 이후에서도. ...
+
+'''
 import heapq
 import collections
 import sys
@@ -7,6 +11,7 @@ input = sys.stdin.readline
 n, m = map(int,input().split()) # 노드 수, 간선 수
 graph = collections.defaultdict(list) # 빈 그래프 생성
 visited = [0] * (n+1) # 노드의 방문 정보 초기화
+
 
 # 무방향 그래프 생성
 for i in range(m): # 간선 정보 입력 받기

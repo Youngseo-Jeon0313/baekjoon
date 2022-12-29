@@ -1,8 +1,6 @@
 '''
 다익스트라 + 가중치가 음수가 될 수 있을 때
 
-한 노드에서 모든 노드로
-
 루프를 V-1번 돌리는데, k번째 루프에서는 시작점으로부터 각 정점으로 
 k개의 간선을 거쳐서 도달할 수 있는 최단경로를 갱신해주자
 
@@ -27,7 +25,7 @@ for _ in range(m):
 def bf(start):
     dist[start] = 0
     for i in range(n): # 정점 수만큼 반복
-        for j in range(m): # 매 반복 마다 모든 간선 확인. 이 때 원칙상 M-1 번 도는 게 맞지만 M번 돌 경우 음의사이클이 존재한다고 판단
+        for j in range(m): # 매 반복 마다 모든 간선 확인
             node = edges[j][0] 
             next_node = edges[j][1] 
             cost = edges[j][2] 
@@ -39,6 +37,9 @@ def bf(start):
 
 # 벨만 포드 알고리즘 수행
 negative_cycle = bf(1)
+
+
+print(dist)
 
 if negative_cycle:
     print('-1')

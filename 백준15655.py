@@ -31,11 +31,11 @@ def Dfs(depth):
             if depth == 0 or solve[depth - 1] < my_list[i]:
                 solve.append(my_list[i])
                 visited[i] = True
-                print(visited)
+                #print(visited)
                 print(solve)
                 Dfs(depth + 1)
                 visited[i] = False
-                print(visited)
+                #print(visited)
                 solve.pop()
 
 Dfs(0)

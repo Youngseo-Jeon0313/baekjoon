@@ -1,32 +1,15 @@
+dict={"I":1, "II":2, "IIV":3, "IV":4, "V":5, "VI":6, "VII":7, "IIX":8, "IX":9}
 
-#최대 공약수
-import math
+s=input()
+index=0;
+ans=0;
+if s[0]=='X':
+    while index<len(s):
+        if s[index]=='X':            
+            ans+=10
+        else: break
+        index+=1
+if index<len(s):
+    ans+=dict[s[index:len(s)]]
 
-#최소 공배수
-def lcm(a,b):
-    return a*b//math.gcd(a,b)
-
-
-a,b=map(int,input().split())
-a,b=a//math.gcd(a,b),b//math.gcd(a,b);
-sum=0
-if a==1: sum+=1;
-else:
-    while a!=0:
-        sum+=1
-        x=b//a+bool(b%a)
-        b=int(b); x=int(x)
-        boonmo=lcm(b,x)
-        # print(x,boonmo)
-        if ((a*boonmo/b)-(boonmo/x))==0: break;
-        else:a=((a*boonmo/b)-(boonmo/x)); b=boonmo;
-print(sum)
-
-
-'''
-zerodivisionerror
-100
-5 86
-
-
-'''
+print(ans)
