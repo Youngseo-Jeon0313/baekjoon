@@ -16,7 +16,7 @@ for S in Archer:
         for i in range(n):
             for j in range(m):
                 if arr[i][j] == 1: flag = True
-        if not flag: break
+        if not flag: break #이제 다 죽었다고 표시된다면 break
 
         dist = [d+1]*3
         enemy = [(-1, -1)] * 3

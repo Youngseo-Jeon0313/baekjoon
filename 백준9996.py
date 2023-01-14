@@ -1,14 +1,17 @@
-T=int(input())
-s,t=input().split('*')
+N=int(input())
 
+S,E = input().split("*")
 
-for i in range(T):
+P = []
 
-    file=input()
-    if file[0:len(s)]==s and file[-1:-len(t)-1:-1]==t[::-1] and (len(s)+len(t))<len(file):
-        print('DA')
+for i in range(N):
+    FN = str(input())
+
+    if FN[:len(S)] == S and FN[-len(E):] ==E:
+        P.append("DA")
+
     else:
-        print("NE")
+        P.append("NE")
 
-#만족하지 않는 경우가 있는지 확인하자
-#<=이거 조심
+for i in range(N):
+    print(P[i])
