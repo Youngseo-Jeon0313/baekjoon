@@ -1,36 +1,30 @@
 import sys
 input=sys.stdin.readline
 
+#먹을까 말까
 N=int(input())
-M=int(input())
+L=[int(input()) for _ in range(N)]
 
-fibo = [0 for _ in range(N+1)]
+#0 1만 포함 
+#1 1,2를 포함
+#2 2만 포함
+#DP[현재][0,1,2]=일때 최댓값
+DP=[[0 for _ in range(3)] for _ in range(N+1)] 
 
-fibo[0]=0
-fibo[1]=1
-if N>1:
-    fibo[2]=2
+DP[1][0]=L[0]; #1만 포함한 결과
+DP[2][1]=L[0]+L[1]//2; #1, 2를 포함한 결과
+DP[2][2]=L[1]; #2만 포함한 결과
 
-if N>2:
-    for i in range(3,N+1):
-        fibo[i]=fibo[i-1]+fibo[i-2]
-L=[(i+1) for i in range(M)]
-no=[]
-for _ in range(M):
-    x=int(input())
-    no.append(x)
-ans=1
+ans =0
 
-sum=0
-for i in range(1,N+1):
-    if (i in no) :
-        # print(sum)
-        ans*=fibo[sum]
-        sum=0
-    else:
-        sum+=1
-    
-# print(sum)
-ans*=sum
-if ans==0: print(1)
-else: print(ans)
+ans = max(DP[1][0], DP[2][1], DP[2][2])
+for i in range(3, N+1):
+    DP[i][0] = L[i-1] + max(max(DP[i-3][0], DP[i-3][2]), DP[i-3][1])
+    DP[i][2] = L[i-1] + max(max(DP[i-2][0], DP[i-2][2]), DP[i-2][1])
+    DP[i][1] = L[i-1]//2 +max(DP[i-1][0], DP[i-1][2])
+    ans = max(DP[i][0], DP[i][2], DP[i][1])
+
+
+# print(DP)
+print(ans)
+
