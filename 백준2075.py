@@ -1,31 +1,17 @@
 import sys
 input=sys.stdin.readline
-
-from collections import deque
-
 import heapq
 
-heap=[]
-heapq.heapify(heap)
+heap = []
+n = int(input())
 
-N=int(input())
-
-List=[]
-for i in range(N):
-    List.append(list(map(int,input().split())))
-
-
-for i in range(N):
-    temp=deque([])
-    for j in range(N-1,-1,-1):
-        temp.append(-List[j][i])
-    heapq.heappush(heap,temp)
-
-
-for i in range(N):
-    temp_list=heapq.heappop(heap)
-    ans = temp_list.popleft()
-    # print(ans)
-    if temp_list: heapq.heappush(heap,temp_list)
-
-print(-ans)
+for _ in range(n):
+    numbers = map(int, input().split())
+    for number in numbers:
+        if len(heap) < n: # heap의 크기를 n개로 유지
+            heapq.heappush(heap, number)
+        else:
+            if heap[0] < number:
+                heapq.heappop(heap)
+                heapq.heappush(heap, number)
+print(heap[0])

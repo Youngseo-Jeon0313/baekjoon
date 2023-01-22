@@ -1,3 +1,25 @@
+n,m= map(int, input().split())
+dna = [list(input()) for _ in range(n)]
+ans = []
+for y in range(m):
+    dict = {'A': 0, 'C':0, 'G':0, 'T':0}
+    # n값을 기준으로 먼저 증가
+    for x in range(n):
+        dict[dna[x][y]] += 1
+    for k,v in dict.items():
+        if v == max(dict.values()):
+            ans.append(k)
+    print(y,dict)
+print(ans)
+cnt = 0
+for d in dna:
+    for i in range(m):
+        if d[i] != ans[i]:
+            cnt += 1
+print(''.join(ans))            
+print(cnt)
+
+'''
 N,M=map(int,input().split())
 
 arr=[]
@@ -28,3 +50,5 @@ for j in range(M):
     for i in range(N):
         if arr[i][j]!=ans[j]: ret+=1
 print(ret)
+
+'''
