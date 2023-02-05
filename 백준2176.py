@@ -11,7 +11,7 @@ INF = int(1e9)
 graph = [[] * (n+1) for _ in range(n+1)]
 # 최단 거리 테이블을 모두 무한으로 초기화
 distance = [INF] * (n+1)
-
+dp=[0 for _ in range(n+1)]; dp[2]=1
 # 간선 정보 입력
 for _ in range(m):
     a, b, c = map(int, input().split())
@@ -31,29 +31,20 @@ def dijkstra(start):
         # print(q)
         # 가장 최단 거리가 짧은 노드에 대한 정보 꺼내기
         dist, now = heapq.heappop(q)
-        
-        if now==2 : 
-            # print('야호'); print(dist)
-            if dist<d: d=dist; ans=1
-            elif dist==d: ans+=1
-        
         # 현재 노드가 이미 처리된 적이 있는 노드라면 무시
-        if distance[now] < dist:
-            continue
+        if distance[now] < dist: continue
         # 현재 노드와 연결된 다른 인접한 노드들을 확인
-        for i in graph[now]:
-            cost = dist + i[1]
+        for next,next_dist in graph[now]:
+            cost = dist +next_dist
             # 현재 노드를 거쳐서, 다른 노드로 이동하는 거리가 더 짧은 경우
-            if i[0]==2:
-                
-                if cost<d:d=cost; ans=1
-                elif cost==d: ans+=1
-            if cost < distance[i[0]]:
-                distance[i[0]] = cost
-                heapq.heappush(q, (cost, i[0]))
+            if cost < distance[next]:
+                distance[next] = cost
+                heapq.heappush(q, (cost,next))
+            if dist>distance[next]:
+                dp[now]+=dp[next]
 
 # 다익스트라 알고리즘을 수행
-dijkstra(1)
+dijkstra(2)
 
 # 모든 노드로 가기 위한 최단 거리를 출력
-print(ans)
+print(dp[1])
