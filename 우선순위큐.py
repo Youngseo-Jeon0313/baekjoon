@@ -22,6 +22,11 @@ while heap:
     print(heapq.heappop(heap)[1], end=" ")
     
 
+#만약 from heapq import * 이렇게 표기한다면 굳이 heapq.~~ 이렇게 안 하고 바로
+#heapify(hq) 이런 식으로 가면 됨!!!!
+
+
+
 #시간 복잡도 NlogN -최소
 
 #만약 내림차순으로 하고 싶다면 value=> -value, append(-~~) 이렇게 -로 넣고 -로 빼면 된다.
