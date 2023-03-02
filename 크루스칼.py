@@ -1,8 +1,6 @@
 '''
 가중치 작은 간선부터 차례대로 구한다.
 '''
-
-
 def find_set(x):
     while x != parents[x]:
         x = parents[x]
