@@ -1,6 +1,5 @@
 from heapq import *
-import sys
-input=sys.stdin.
+
 
 def solution(n, s, a, b, fares): 
     adj=[[] for _ in range(n+1)]
