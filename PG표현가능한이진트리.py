@@ -25,6 +25,7 @@ def check(binary_num, index, length, flag):
         else:
             if not flag or not check(binary_num, index-length//2, length//2, True):
                 return False
+    #그게 다 아니라면 True를 반환
     return True
     
         
