@@ -1,3 +1,5 @@
+#규칙을 써내려가다보면 점화식이 도출된다
+
 N,K=map(int,input().split())
 dp=[[0 for col in range(N+1)] for row in range(K+1)]
 for i in range(K+1):
