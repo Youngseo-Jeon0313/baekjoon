@@ -1,4 +1,4 @@
-
+#물품의 수, 버틸 수 있는 무게
 n, k = [int(x) for x in input().split()]
 table = [0] * (k+1)
 

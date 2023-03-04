@@ -18,3 +18,4 @@ for s, e in lst:
     result = max(result, len(heap))
 print(result)
 
+#heapq 스위핑
