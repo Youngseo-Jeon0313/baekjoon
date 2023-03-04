@@ -3,7 +3,7 @@ input=sys.stdin.readline
 
 #최대한 많은 줄에 탭을 추가하거나 삭제해야 하므로
 #첫째줄부터 끝까지 탐색해가며 묶음으로 처리한다.
-
+#그리디
 
 N=int(input())
 before=list(map(int,input().split()))
