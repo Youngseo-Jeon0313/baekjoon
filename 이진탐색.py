@@ -19,6 +19,8 @@ if result == None:
 else:
     print(result +1)
 
+#logN에 해결해야 할 때 사용
+
 
 #파이썬 이진 탐색 라이브러리
 #bisect_left(a,x):정렬된 순서를 유지하면서 배열 a에 x를 삽입할 가장 왼쪽 인덱스를 반환
@@ -27,7 +29,7 @@ else:
 #생각. 값이 특정 범위에 속하는 데이터 개수 구하기?
 #값이 4인 데이터 개수 출력
 #print(count_by_range(a,4,4)) -이때 a는 배열!
-'''
+
 def binary_search(target, data):
     data.sort()
     start = 0
@@ -44,5 +46,3 @@ def binary_search(target, data):
             end = mid -1
 
     return None
-
-'''
