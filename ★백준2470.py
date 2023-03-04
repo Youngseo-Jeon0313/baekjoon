@@ -14,3 +14,4 @@ for start in range(n-1):
 
 if ans[0]<ans[1]: print(ans[0],ans[1])
 else: print(ans[1],ans[0])
+

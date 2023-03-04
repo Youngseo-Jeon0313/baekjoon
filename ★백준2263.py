@@ -56,3 +56,4 @@ def preorder(instart,inend,poststart,postend):
     preorder(inend-right+1,inend,postend-right,postend-1)#4 7 4 7
 
 preorder(0,N-1,0,N-1)
+
