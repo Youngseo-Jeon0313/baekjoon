@@ -12,6 +12,7 @@ def binary(number):
 
 def check(binary_num, index, length, flag):
     #분할
+    #최종적으로 나오는 것들을 반환하기 위해 if문 안에 재귀함수를 넣어야 한다.
     if length > 1:
         if binary_num[index+length//2] == '0':
             if not check(binary_num, index+length//2, length//2, False):
