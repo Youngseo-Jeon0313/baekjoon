@@ -51,3 +51,13 @@ for i in range(1, n+1):
         print("INF")
     else:
         print(distance[i])
+
+
+
+'''
+다익스트라 주의
+1. 간 곳을 또 간다. -> check 해줄 필요 없다.
+2. heapq는 최소인 것부터 빠진다.
+3. 다익스트라 dist 할당해줄 때? 초반에는 float('inf') 로 초기화한다. 이후에 갱신
+
+'''
