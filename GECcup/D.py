@@ -1,11 +1,19 @@
-import sys
-input=sys.stdin.readline
+x, n = map(int, input().split())
 
-x0, N=map(int,input().split())
-for i in range(6):
-    if x0%2==0:
-        x0=(x0//2)^6
+def f(t, num):
+    if num == 4:
+        return 4
+    elif num == 8:
+        return [8, 2, 7][t % 3]
+    elif num == 0:
+        return [0, 6, 5, 12][t % 4]
     else:
-        x0=(x0*2)^6
-    print(x0)
-print(x0)
+        if t == 0:
+            return num
+        else:
+            if num % 2 == 0:
+                return f(t - 1, num // 2 ^ 6)
+            else:
+                return f(t - 1, num * 2 ^ 6)
+
+print(f(n, x))
