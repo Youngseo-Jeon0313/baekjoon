@@ -1,26 +1,24 @@
-def go(idx):
-    global minAns, maxAns
-    if idx==n:
-        val = ''.join(map(str,ans))
-        if minAns[0] > int(val): minAns = [int(val),val]
-        if maxAns[0] < int(val): maxAns = [int(val), val]
-        return
-    for i in range(10):
-        if i not in ans:
-            if (s[idx]=='<' and ans[-1]<i) or (s[idx]=='>' and ans[-1]> i):
-                ans.append(i)
-                go(idx+1)
-                ans.pop()
-
 n=int(input())
-s=input().split()
-ans=[]
-minAns = [float('inf'), '']
-maxAns = [0,'']
-for i in range(10):
-    ans.append(i)
-    go(0)
-    ans.pop()
+compare = list(input().split())
 
-print(maxAns[i])
-print(minAns[i])
+MAX=0
+MIN=float('inf')
+
+def back(ans,compare_num):
+    global MAX, MIN;
+    if len(ans) == n+1: # 배열의 길이를 확인
+        MAX=max(MAX,int(''.join(str(x) for x in ans)))
+        MIN=min(MIN,int(''.join(str(x) for x in ans)))
+        return 
+    for i in range( 10): # 1 ~ N 까지
+        if i not in ans : # 중복 확인
+            if compare[compare_num]=='<' and ans[-1]<i:
+                back(ans+[i],compare_num+1)
+            elif compare[compare_num]=='>' and ans[-1]>i:
+                back(ans+[i],compare_num+1)
+
+for i in range(10):
+    back([i],0)
+
+print(str(MAX).zfill(n+1))
+print(str(MIN).zfill(n+1))
