@@ -24,3 +24,5 @@ if Bpoint<M:
     for i in range(Bpoint,M):
         newList.append(BList[i])
 print(*newList)
+
+

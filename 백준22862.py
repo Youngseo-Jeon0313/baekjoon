@@ -20,4 +20,7 @@ while left<=right and right<S:
             if List[left]%2: limit-=1;
             left+=1
 print(ans)
+
+
+
     

@@ -17,3 +17,6 @@ while left<right :
         if prefix_sum==x: ans+=1
         right-=1
 print(ans)
+
+
+
