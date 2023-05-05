@@ -28,6 +28,8 @@ print(max_count)
 # 이후 선분을 하나씩 탐색하며 탐색중인 선분의 왼쪽 좌표와 min heap에 저장된 오른쪽 좌표를 비교해 왼쪽좌표보다 낮은거는 모두 삭제한다.
 # 삭제가 끝나면 현재 탐색중인 선분의 오른쪽 좌표를 min heap에 삽입한 뒤 결과 값에 결과값과 길이 중 더 높은 숫자를 저장한다.
 # 모든 탐색이 끝난 뒤 결과값을 출력한다.
+
+
 import sys, heapq
 input = sys.stdin.readline
 n = int(input())
