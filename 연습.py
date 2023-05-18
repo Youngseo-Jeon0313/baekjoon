@@ -1,20 +1,9 @@
-def find(N, X):
-    s, e = 0, N-1
+e=20 
+def e_is_10():
+     e=10            # 전역변수
+     print('e 값은 ', e, '입니다') #10
 
-    while s <= e:
-        m = (s + e) // 2
-        v = compare(m, X)
+e_is_10()
 
-        if v > 0:
-            s = m + 1
-        elif v < 0:
-            e = m - 1
-        else:
-            return m
 
-    return -1
 
-# 예시
-A = [3, 4, 7, 9, 23, 110]
-X = 23
-print(find(len(A), X))  # 4
