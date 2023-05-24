@@ -1,0 +1,5 @@
+a=int(input())
+if a==1010: print(20)
+elif a>=100 and a<=109: print(a//10+a%10)
+elif len(str(a))==3: print(a//100+a%100)
+else: print(a//10+a%10)

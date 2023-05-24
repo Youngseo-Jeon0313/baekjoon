@@ -1,0 +1,6 @@
+a1=int(input())
+a2=int(input())
+a3=int(input())
+a4=int(input())
+a5=int(input())
+print(min(a1,a2,a3)+min(a4,a5)-50)
