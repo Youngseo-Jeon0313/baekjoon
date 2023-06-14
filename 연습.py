@@ -1,9 +1,7 @@
-e=20 
-def e_is_10():
-     e=10            # 전역변수
-     print('e 값은 ', e, '입니다') #10
+import turtle as t
 
-e_is_10()
+t.shape('turtle')
 
-
-
+for i in range(5):
+    t.fd(100)
+    t.rt(350/5)

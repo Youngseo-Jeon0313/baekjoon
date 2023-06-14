@@ -1,3 +1,7 @@
+'''
+ford fulkerson 알고리즘 
+'''
+
 import math
  
 sz = 128
@@ -37,7 +41,7 @@ def maxFlow(capacity, source, sink):
       flow[parent[p]][p] += amount #flow 되는 부분은 더해주고
       flow[p][parent[p]] -= amount #flow 당하는 부분은 빼준다
       p = parent[p]
- 
+
 def solve():
   n = int(input())
   capacity = [[0] * sz for _ in range(sz)]
@@ -48,6 +52,10 @@ def solve():
     c = int(c)
     capacity[p][q] += c
     capacity[q][p] += c
-  print(maxFlow(capacity, ord('A'), ord('Z')))
- 
+  print(maxFlow(capacity, ord('S'), ord('T')))
+
+
+
+
+
 solve()
