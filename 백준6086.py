@@ -1,11 +1,7 @@
-'''
-ford fulkerson 알고리즘 
-'''
-
 import math
  
 sz = 128
- 
+flow = [[0] * sz for _ in range(sz)] 
 def bfs(flow, capacity, source, sink):
   q = [source]
   parent = [-1] * sz
@@ -21,11 +17,12 @@ def bfs(flow, capacity, source, sink):
   return parent
  
 def maxFlow(capacity, source, sink):
-  flow = [[0] * sz for _ in range(sz)]
+
   rst = 0
   while True:
     # 증가 경로를 못 찾을 때까지 루프를 돈다.
     parent = bfs(flow, capacity, source, sink)
+    print(parent)
     if parent[sink] == -1: #싱크로 가는 경로가 더 없으면 루프 탈출
       return rst
     p = sink
@@ -41,6 +38,7 @@ def maxFlow(capacity, source, sink):
       flow[parent[p]][p] += amount #flow 되는 부분은 더해주고
       flow[p][parent[p]] -= amount #flow 당하는 부분은 빼준다
       p = parent[p]
+
 
 def solve():
   n = int(input())
