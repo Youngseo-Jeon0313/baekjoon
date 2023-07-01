@@ -10,3 +10,4 @@ for j in range(N):
         if List[j]>=i and N-i==j :
             print(i); exit()
 print(0)
+

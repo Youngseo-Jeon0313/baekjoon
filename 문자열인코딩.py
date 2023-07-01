@@ -17,7 +17,7 @@ def count_encodings(s):
         two_digits = int(s[i - 2:i])
         if 10 <= two_digits <= 26:
             dp[i] += dp[i - 2]
-
+    print(dp)
     return dp[n]
 
 
