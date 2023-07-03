@@ -1,1 +1,1 @@
-print(ord(''))
+print('{:.2f}'.format(2.5555))
