@@ -1,0 +1,16 @@
+N=int(input())
+charge=1000-N
+ans=0
+ans+=charge//500
+charge%=500
+ans+=charge//100
+charge%=100
+ans+=charge//50
+charge%=50
+ans+=charge//10
+charge%=10
+ans+=charge//5
+charge%=5
+ans+=charge
+charge%=1
+print(ans)
