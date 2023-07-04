@@ -1,1 +1,1 @@
-print('{:.2f}'.format(2.5555))
+print(ord('Z')-ord('A'))
