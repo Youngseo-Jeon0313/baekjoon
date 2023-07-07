@@ -1,13 +1,10 @@
-from itertools import combinations as cb
-
-
 N,M=map(int,input().split())
 cost=[[float('inf') for _ in range(N+1)] for _ in range(N+1)]
 
 for _ in range(M):
     a,b=map(int,input().split())
-    cost[b][a]=1
-    cost[a][b]=1
+    cost[b][a]=2
+    cost[a][b]=2
 
 for i in range(1,N+1):
     cost[i][i]=0
@@ -29,4 +26,4 @@ for x in range(N):
             ans_1=x; ans_2=y
             ans=temp;
 # print(List)
-print(ans_1, ans_2, ans*2)
+print(ans_1, ans_2, ans)
