@@ -20,7 +20,7 @@ ans=float('inf')
 ans_1=0; ans_2=0
 arr=[i for i in range(1,N+1)]
 for x in range(N):
-    for y in range(x+1,N+1):
+    for y in range(x,N+1):
         # print(i)
         temp=0
         for j in range(1,N+1):
