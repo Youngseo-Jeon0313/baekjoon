@@ -1,1 +1,1 @@
-print(ord('Z')-ord('A'))
+print(5000000*26-1)
