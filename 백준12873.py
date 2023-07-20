@@ -16,6 +16,4 @@ while len(List)>1:
         List.popleft()
     # print(List)
     index+=1
-    
-
 print(*List)

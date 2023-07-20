@@ -39,11 +39,8 @@ def dijkstra(start):
                 max_distance[i[0]] = max(max_, i[1])
                 heapq.heappush(q, (cost, i[0], max(max_,i[1])))
 
-# 다익스트라 알고리즘을 수행
 dijkstra(start)
-# print(distance)
-# print(max_distance)
-# 모든 노드로 가기 위한 최단 거리를 출력
+
 
 print(distance[end]-max_distance[end])
 

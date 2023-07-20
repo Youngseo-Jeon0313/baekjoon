@@ -4,8 +4,9 @@ def find(target):
         return target
  
     # 경로 압축 최적화
-    return find(parent[target])
- 
+    else:
+        parent[target] = find(parent[target])
+        return parent[target]
 # union 연산
 def union(a, b):
     a = find(a) #이거 빼먹지 않도록 주의ㅠㅠㅠ
