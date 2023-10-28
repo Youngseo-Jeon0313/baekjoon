@@ -25,6 +25,8 @@ for i in range(n):
 if flag:
     print(1)
     for i in range(m):
-        print(i, *first_work_day[i])
+        print(i, end='')
+        for j in first_work_day[i]:
+            print(j+1)
 else:
     print(-1)
