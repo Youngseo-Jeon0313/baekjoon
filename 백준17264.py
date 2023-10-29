@@ -16,7 +16,8 @@ for _ in range(N):
     else:
         score -= losepoint
         score = max(score, 0)
-    if score>=total: flag=True
+    if score>=total: 
+        flag=True
 
 if not flag:
     print("I AM IRONMAN!!")
