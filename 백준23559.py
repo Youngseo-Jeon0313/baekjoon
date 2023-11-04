@@ -18,11 +18,11 @@ for i in range(N):
 
 #정렬한다.
 menu = sorted(menu, key = lambda x:[x[1]-x[0]])
-print(menu)
+#print(menu)
 for i in menu:
     if i[1]<i[0] and X-4000>=0:
         ans=ans-i[1]+i[0]
         X-=4000
-        print('ans',ans)
+        #print('ans',ans)
 
 print(ans)
