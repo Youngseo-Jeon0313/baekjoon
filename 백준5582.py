@@ -10,7 +10,7 @@ for i in range(len(S1)):
         if S1[i]==S2[j]:
             DP[i+1][j+1]=DP[i][j]+1
 answer = 0    
-for i in range(len(S1)):
+for i in range(len(S1)+1):
     answer = max(answer, max(DP[i]))
 
 print(answer)
